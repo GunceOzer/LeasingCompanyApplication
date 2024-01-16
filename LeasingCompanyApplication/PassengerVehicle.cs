@@ -48,7 +48,7 @@ namespace LeasingCompanyApplication
 			visitor.Visit(this);
 		}
 
-		public override double RentVehicle(int duration, double travelDistance,VehicleFleet fleet)
+		public override double RentCostOfVehicle(int duration, double travelDistance,VehicleFleet fleet)
 		{
 			double modelCoefficient = fleet.CalculateModelCoefficient(this);
 			return duration * travelDistance * modelCoefficient*Rating;

@@ -49,7 +49,7 @@ namespace LeasingCompanyApplication
 			public abstract double CalculateTotalValue();
 			public abstract void DisplayDetails();
 			public abstract void Accept(IVehicleVisitor visitor);
-			public abstract double RentVehicle(int duration, double travelDistance,VehicleFleet fleet);
+			public abstract double RentCostOfVehicle(int duration, double travelDistance,VehicleFleet fleet);
 			
 		}
 	

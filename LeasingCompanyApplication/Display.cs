@@ -19,7 +19,7 @@ namespace LeasingCompanyApplication
 
 		public void DisplayTotalFleetValue(VehicleFleet fleet)
 		{
-			
+			Console.WriteLine("7: Total Fleet Value");
 			double totalFleetValue = fleet.CalculateTotalFleetValue();
 			string formattedCost = totalFleetValue.ToString("C",polishCulture);
 			Console.WriteLine($"Total fleet value is {formattedCost}");
@@ -43,9 +43,9 @@ namespace LeasingCompanyApplication
 
 			Console.WriteLine();
 			string rentId = InputHelper.ReadString("Enter the ID of the vehicle that you want to learn the rental cost: ");
-			var vehicleToRent = fleet.GetAllVehicles().FirstOrDefault(v => v.Id == rentId);
+			var vehicleToShowRent = fleet.GetAllVehicles().FirstOrDefault(v => v.Id == rentId);
 
-			if (vehicleToRent == null)
+			if (vehicleToShowRent == null)
 			{
 				Console.WriteLine("Vehicle not found.");
 				return;
@@ -54,7 +54,7 @@ namespace LeasingCompanyApplication
 			int duration = InputHelper.ReadInt("Enter the duration of the trip in days: ");
 			double travelDistance = InputHelper.ReadDouble("Enter the travel distance: ");
 
-			double rentalCost = vehicleToRent.RentVehicle(duration, travelDistance, fleet);
+			double rentalCost = vehicleToShowRent.RentCostOfVehicle(duration, travelDistance, fleet);
 			string formattedRentalCost = rentalCost.ToString("C",polishCulture);
 			Console.WriteLine($"The cost of renting this vehicle is: {formattedRentalCost}");
 		}
@@ -292,7 +292,7 @@ namespace LeasingCompanyApplication
 			Console.WriteLine("6: Get Vehicles by Brand and Color");
 			Console.WriteLine("7: Total Fleet Value");
 			Console.WriteLine("8: Vehicles Requiring Maintenance");
-			Console.WriteLine("9: Rental costs");
+			Console.WriteLine("9: Rental cost of vehicle");
 			Console.WriteLine("10: Get list of vehicles that exceeded operational tenure");
 			Console.WriteLine("11: Exit");
 			
